@@ -5,6 +5,8 @@ func sort(arr []int) {
 		for j := 0; j < i; j++ {
 			if arr[i] < arr[j] {
 				arr[i], arr[j] = arr[j], arr[i]
+			} else {
+				break
 			}
 		}
 	}
