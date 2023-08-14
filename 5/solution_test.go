@@ -6,32 +6,32 @@ import (
 )
 
 func TestCalculateSum(t *testing.T) {
-	root := &Node{
-		Value: 5,
-		R: &Node{
-			Value: 5,
-			R:     nil,
-			L:     nil,
+	root := &TreeNode{
+		Val: 5,
+		Right: &TreeNode{
+			Val:   5,
+			Right: nil,
+			Left:  nil,
 		},
-		L: &Node{
-			Value: 5,
-			R: &Node{
-				Value: 3,
-				R:     nil,
-				L:     nil,
+		Left: &TreeNode{
+			Val: 5,
+			Right: &TreeNode{
+				Val:   3,
+				Right: nil,
+				Left:  nil,
 			},
-			L: &Node{
-				Value: 4,
-				R:     nil,
-				L:     nil,
+			Left: &TreeNode{
+				Val:   4,
+				Right: nil,
+				Left:  nil,
 			},
 		},
 	}
 
-	require.True(t, BranchValue(root, 10))
-	require.True(t, BranchValue(root, 13))
-	require.True(t, BranchValue(root, 14))
-	require.False(t, BranchValue(root, 9))
-	require.False(t, BranchValue(root, 100))
+	require.True(t, hasPathSum(root, 10))
+	require.True(t, hasPathSum(root, 13))
+	require.True(t, hasPathSum(root, 14))
+	require.False(t, hasPathSum(root, 9))
+	require.False(t, hasPathSum(root, 100))
 
 }

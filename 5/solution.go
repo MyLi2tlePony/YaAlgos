@@ -1,16 +1,20 @@
 package main
 
-type Node struct {
-	Value int
-	R     *Node
-	L     *Node
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
 }
 
-func BranchValue(node *Node, value int) bool {
+func hasPathSum(node *TreeNode, value int) bool {
 	if node == nil {
-		return value == 0
+		return false
 	}
 
-	result := value - node.Value
-	return BranchValue(node.L, result) || BranchValue(node.R, result)
+	if node.Left == nil && node.Right == nil {
+		return value == node.Val
+	}
+
+	result := value - node.Val
+	return hasPathSum(node.Left, result) || hasPathSum(node.Right, result)
 }
